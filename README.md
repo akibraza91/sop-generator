@@ -11,7 +11,7 @@ What used in this project?
 How to use it for deployment locally?
 
 1. Firstly, You have installed Nodejs and MySQL on your system.
-2. Open a command promt in your system and Navigate to your project directory then run 'npm install' this will install all the dependencies that is used in the project.
+2. Open a command promt in your system and Navigate to your project directory then run 'npm install' this will install all the dependencies that are used in project.
 3. Update your index.js file for MySQL database according to your credentials.
 4. For better reference for MySQL table please find sop_table.sql.
 

@@ -5,15 +5,14 @@ A Statement of Purpose (SOP) is a document typically used in the context of acad
 What used in this project?
 
 1. HTML, CSS, JavaScript, Node.JS, Express.JS, Puppeteer.
-2. A google form which is runs in background.
-3. When you will submit the form, You have recieved an email statement of purpose.
+2. A google form runs in background.
+3. When you submit the form, You have recieved an email statement of purpose.
 
 How to use it for deployment locally?
 
 1. Firstly, You have installed Nodejs and MySQL on your system.
-2. Open a command promt in your system and Navigate to your project directory then run 'npm install' this will install all the dependencies that are used in project.
+2. Open a command promt and Navigate to your project directory then run 'npm install' this will install all the dependencies that are used in project.
 3. Update your index.js file for MySQL database according to your credentials.
-4. For better reference for MySQL table please find table.sql
 
 
 

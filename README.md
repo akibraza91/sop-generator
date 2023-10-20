@@ -20,4 +20,4 @@ How to use it for deployment locally?
 
 
 
-All the questions in the report by Effizient Immigration Inc.
+All the questions in report by Effizient Immigration Inc.

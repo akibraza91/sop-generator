@@ -1,20 +1,21 @@
+// Initialization
 const express = require('express');
 const mysql = require('mysql2');
 const bodyParser = require('body-parser');
-const app = express();
 const puppeteer = require('puppeteer');
 const path = require('path');
+
+const app = express();
 const port = 3000; // Set your desired port number
 
-// Create a MySQL connection
+// MySQL connection
 const db = mysql.createConnection({
     host: 'localhost',
-    user: 'user',
+    user: 'root',
     password: 'password',
-    database: 'database'
+    database: 'mydb'
 });
 
-// Connect to MySQL
 db.connect((err) => {
     if (err) {
         console.error('Error connecting to MySQL: ' + err.stack);
@@ -56,19 +57,20 @@ app.post('/submit', (req, res) => {
     const gicpayment = req.body.gicpayment;
     const gic = req.body.gic;
 
-// Store data in MySQL
+    // Store data in MySQL
     const sql = 'INSERT INTO sop_table (email, fullname, age, education, institute, study, experience, admission, program, country, goals, listening, reading, speaking, writing, tuitionpayment, tuition, gicpayment, gic) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)';
     db.query(sql, [email, fullname, age, education, institute, study, experience, admission, program, country, goals, listening, reading, speaking, writing, tuitionpayment, tuition, gicpayment, gic], (err, result) => {
         if (err) {
-            console.error('Error inserting data into MySQL: ' + err.stack);
-            res.send('Error inserting data into MySQL.');
+            console.error('Error: ' + err.stack);
+            res.send('An error occured while submiting data.');
         } else {
             console.log('Your application submitted.');
             res.send('Your application submitted successfully. We have send an email please check your inbox.');
+            openLink();
         }
     });
 
-// Revert you a mail statement of purpose.
+    // Revert mail statement of purpose.
     var link = "https://docs.google.com/forms/d/e/1FAIpQLSdOHGp-XNvu2p06oSWY7Mtv0R81GxHH2XGaPa1gKdIXAL6msw/formResponse?&pageHistory=0";
     link = link + "&emailAddress="+ email +"&entry.1670307221="+ fullname +"&entry.1723368668="+ age +"&entry.2014837490="+ education;
     link = link + "&entry.2002229478="+ institute +"&entry.1364285845="+ study + "&entry.767407612="+ experience +"&entry.1569902389="+ admission;
@@ -77,25 +79,21 @@ app.post('/submit', (req, res) => {
     link = link + "&entry.1385560828="+ tuition +"&entry.901850093="+ gicpayment + "&entry.1308557841=" + gic;
 
     async function openLink() {
-    const browser = await puppeteer.launch({ headless: true }); // Set headless to false if you want to see the browser window.
-    const page = await browser.newPage();
+        const browser = await puppeteer.launch({ headless: true }); // Set headless to false if you want to see the browser window.
+        const page = await browser.newPage();
 
-    try {
-        const urlToOpen = link; // Replace with your desired URL.
+        try {
+            const urlToOpen = link; // Replace with your desired URL.
 
-        await page.goto(urlToOpen);
-        console.log(`Opened the URL: ${urlToOpen}`);
+            await page.goto(urlToOpen);
+            console.log(`Opened the URL: ${urlToOpen}`);
 
-        // You can perform further operations on the opened page here.
-
-    } catch (error) {
-        console.error('Error:', error);
-    } finally {
-        await browser.close();
+        } catch (error) {
+            console.error('Error: ', error);
+        } finally {
+            await browser.close();
+        }
     }
-    }
-    openLink();
-
 });
 
 // Start the server

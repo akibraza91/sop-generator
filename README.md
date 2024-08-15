@@ -17,8 +17,4 @@ How to use it for deployment locally?
 
 
 
-
-
-
-
-All the questions in report by Effizient Immigration Inc.
+Project based on Effizient Immigration Inc.

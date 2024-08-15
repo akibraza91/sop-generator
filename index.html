@@ -2,15 +2,20 @@
 <html lang="en">
 <head>
   <title>SOP Generator</title>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="/style.css">
+  <link rel="icon" type="image/png" href="/favicon.png">
+  <link rel="stylesheet" type="text/css" href="/style.css">
 </head>
 <body>
   <div class="container">
-    <h1 id="form-title">Customized SOP Generator</h1>
-    <p>
-        Fill this questionnaire for the student. After submitting, you will receive an email at the email address that you have provided with a Statement of Purpose customized for you. You can use and modify that as per your needs.
-    </p><br>
+    <div class="heading">
+      <h1>Customized SOP Generator</h1>
+      <p>
+          Fill this questionnaire for the student. After submitting, you will receive an email at the email address that you have provided with a Statement of Purpose customized for you. You can use and modify that as per your needs.
+      </p>
+    </div>
     <form action="/submit" method="post" id="radioForm">
       <div class="form-group">
         <label for="email">Email:</label>
@@ -52,23 +57,24 @@
       <div class="form-group">
         <label>Do you have any relevant work experience?</label>
         <div class="form-group">
-            <label style="font-weight: lighter;" for="work-experience-details">Write None if no work experience. Provide the following details if yes:</label>
+            <label for="work-experience-details" id="ol_heading">Write None if no work experience. Provide the following details if yes:</label>
             <ol>
               <li>
-                <label style="font-weight: lighter;" for="job-title">Job Title:</label>
+                <label for="job-title">Job Title:</label>
               </li>
               <li>
-                <label style="font-weight: lighter;" for="company-name">Company Name:</label>
+                <label for="company-name">Company Name:</label>
               </li>
               <li>
-                <label style="font-weight: lighter;" for="job-duties">Job Duties:</label>
+                <label for="job-duties">Job Duties:</label>
               </li>
             </ol>
+            <label for="experience">
+              Sample Answer: I worked as a Sales Manager at Effizient Immigration Inc from Jan 2022 till Feb 2023. In this role, I managed sales operations, reaching out to leads, lead the outreach program, ensured meeting monthly targets.
+            </label>
             <textarea id="experience" name="experience" rows="4"></textarea>
           </div>
       </div>
-
-      
 
       <div class="form-group">
         <label for="admission">Institute Admitted to in Canada:</label>
@@ -103,8 +109,14 @@
       <div class="form-group">
         <label>Did you pay your first year tuition?</label>
         <div class="radio-group">
-          <label><input type="radio" name="tuitionpayment" value="Yes" required> Yes</label>
-          <label><input type="radio" name="tuitionpayment" value="No"> No</label>
+          <label>
+            <input type="radio" name="tuitionpayment" value="Yes" required>
+            <span>Yes</span>  
+          </label>
+          <label>
+            <input type="radio" name="tuitionpayment" value="No">
+            <span>No</span>  
+          </label>
         </div>
       </div>
 
@@ -116,8 +128,14 @@
       <div class="form-group">
         <label>Did you do a GIC?</label>
         <div class="radio-group">
-          <label><input type="radio" name="gicpayment" value="Yes" required> Yes</label>
-          <label><input type="radio" name="gicpayment" value="No"> No</label>
+          <label>
+            <input type="radio" name="gicpayment" value="Yes" required>
+            <span>Yes</span>
+          </label>
+          <label>
+            <input type="radio" name="gicpayment" value="No">
+            <span>No</span>
+          </label>
         </div>
       </div>
 
@@ -131,6 +149,5 @@
       </div>
     </form>
   </div>
-  <script src="index.js"></script>
 </body>
 </html>

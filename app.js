@@ -128,4 +128,4 @@ app.post('/submit', async(req, res) => {
 // });
 
 // Using for Vercel deployment
-export default app;
+module.exports = app;

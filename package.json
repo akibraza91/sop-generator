@@ -1,7 +1,7 @@
 {
   "name": "sop-generator",
   "version": "1.0.0",
-  "description": "",
+  "description": "A Statement of Purpose (SOP) is a document typically used in the context of academic applications, especially for graduate school admissions. It is a written statement that outlines your academic and professional background, your goals, and your reasons for applying to a particular educational program or institution. SOPs are also sometimes required for job applications or other formal applications.",
   "main": "app.js",
   "scripts": {
     "start": "node app.js",
@@ -16,5 +16,13 @@
     "express": "^5.2.1",
     "mongodb": "^7.1.0",
     "puppeteer": "^24.37.5"
-  }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/akibraza91/sop-generator.git"
+  },
+  "bugs": {
+    "url": "https://github.com/akibraza91/sop-generator/issues"
+  },
+  "homepage": "https://github.com/akibraza91/sop-generator#readme"
 }

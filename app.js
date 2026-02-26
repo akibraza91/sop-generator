@@ -1,7 +1,7 @@
 // Import express
 import express from 'express';
 import bodyParser from 'body-parser';
-import clientPromise from '../mongodb.js';
+import clientPromise from './mongodb.js';
 
 const app = express();
 // Serve files from "public" folder

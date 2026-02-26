@@ -1,0 +1,156 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap');
+*,
+*::before,
+*::after
+{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  position: relative;
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: "Open Sans", sans-serif;
+  background-color: #f7f7f7;
+  color: #292A34;
+}
+.container {
+  position: relative;
+  max-width: 675px;
+  height: auto;
+  background-color: #fff;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  margin: 1.5em 0;
+  padding: 2em;
+  border-radius: 0.5em;
+}
+.container .heading h1
+{
+  display: block;
+  text-align: center;
+}
+.container .heading p
+{
+  display: block;
+  text-align: center;
+  border-bottom: 1px solid #ccc;
+  padding-bottom: 1.5em;
+  font-size: 0.9em;
+}
+form
+{
+  padding-top: 2em;
+  display: flex;
+  flex-direction: column;
+  gap: 1em;
+}
+form .form-group
+{
+  display: flex;
+  flex-direction: column;
+}
+form .form-group label
+{
+  font-weight: 500;
+  padding-bottom: 0.2em;
+}
+form .form-group input,
+form .form-group textarea,
+form .form-group select
+{
+  outline: none;
+  font-size: 0.95em;
+  border-radius: 0.2em;
+  border: 1px solid #ccc;
+  padding: 0.7em 0.5em;
+}
+form .form-group ol
+{
+  padding: 1em 0 1em 3em;
+}
+form .form-group #ol_heading
+{
+  padding-top: 0.2em;
+}
+form .form-group textarea
+{
+  resize: vertical;
+  font-family: inherit;
+  font-size: 0.9em;
+  margin-top: 0.5em;
+}
+form .form-group .score-group
+{
+  display: flex;
+  flex-direction: column;
+  gap: 0.5em;
+}
+form .form-group .radio-group
+{
+  display: flex;
+  flex-direction: column;
+  gap: 0.5em;
+  margin-top: 0.5em;
+}
+form .form-group .radio-group label
+{
+  display: flex;
+  align-items: center;
+  gap: 0.2em;
+}
+input[type="submit"] {
+  background-color: #007bff;
+  color: #fff;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 3px;
+  cursor: pointer;
+}
+input[type="submit"]:hover {
+  background-color: #0056b3;
+}
+/* Modal style */
+#overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 999;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+#overlay #modal {
+  position: relative;
+  width: 400px;
+  height: 150px;
+  background-color: #f7f7f7;
+  padding: 1em;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  border-radius: 0.5em;
+}
+#overlay #modal #ok-btn-box {
+  position: relative;
+  text-align: right;
+  padding: 0 1.5em;
+}
+
+@media (max-width: 600px){
+  .container
+  {
+    width: 95%;
+    padding: 1em;
+  }
+  .container .heading h1
+  {
+    font-size: 1.8em;
+  }
+}

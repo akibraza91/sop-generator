@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>SOP Generator</title>
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" type="image/png" href="/favicon.png">
+  <link rel="stylesheet" type="text/css" href="/style.css">
+</head>
+<body>
+  <div class="container">
+    <div class="heading">
+      <h1>Customized SOP Generator</h1>
+      <p>
+          Fill this questionnaire for the student. After submitting, you will receive an email at the email address that you have provided with a Statement of Purpose customized for you. You can use and modify that as per your needs.
+      </p>
+    </div>
+    <form action="/submit" method="post" id="myForm">
+      <div class="form-group">
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" required>
+      </div>
+
+      <div class="form-group">
+        <label for="fullname">Full Name:</label>
+        <input type="text" id="fullname" name="fullname" required>
+      </div>
+
+      <div class="form-group">
+        <label for="age">Age:</label>
+        <input type="number" id="age" name="age" required>
+      </div>
+
+      <div class="form-group">
+        <label for="education">Highest Level of Education:</label>
+        <select id="education" name="education" required>
+          <option value="">Choose</option>
+          <option value="Grade 12">Grade 12</option>
+          <option value="Diploma">Diploma</option>
+          <option value="Bachelors Degree">Bachelors Degree</option>
+          <option value="Masters Degree">Masters Degree</option>
+          <option value="PhD">PhD</option>
+        </select>
+      </div>
+
+      <div class="form-group">
+        <label for="institute">Institute of Highest Education:</label>
+        <input type="text" id="institute" name="institute" required>
+      </div>
+
+      <div class="form-group">
+        <label for="study">What did you study:</label>
+        <input type="text" id="study" name="study" required>
+      </div>
+
+      <div class="form-group">
+        <label>Do you have any relevant work experience?</label>
+        <div class="form-group">
+            <label for="work-experience-details" id="ol_heading">Write None if no work experience. Provide the following details if yes:</label>
+            <ol>
+              <li>
+                <label for="job-title">Job Title:</label>
+              </li>
+              <li>
+                <label for="company-name">Company Name:</label>
+              </li>
+              <li>
+                <label for="job-duties">Job Duties:</label>
+              </li>
+            </ol>
+            <label for="experience">
+              Sample Answer: I worked as a Sales Manager at Effizient Immigration Inc from Jan 2022 till Feb 2023. In this role, I managed sales operations, reaching out to leads, lead the outreach program, ensured meeting monthly targets.
+            </label>
+            <textarea id="experience" name="experience" rows="4"></textarea>
+          </div>
+      </div>
+
+      <div class="form-group">
+        <label for="admission">Institute Admitted to in Canada:</label>
+        <input type="text" id="admission" name="admission" required>
+      </div>
+
+      <div class="form-group">
+        <label for="program">Program of Study in Canada:</label>
+        <input type="text" id="program" name="program" required>
+      </div>
+
+      <div class="form-group">
+        <label for="country">Country Applying From:</label>
+        <input type="text" id="country" name="country" required>
+      </div>
+
+      <div class="form-group">
+        <label for="goals">Future Goals:</label>
+        <textarea id="goals" name="goals" rows="4" required></textarea>
+      </div>
+
+      <div class="form-group">
+        <label>English Scores:</label>
+        <div class="score-group">
+          <input type="number" id="listening" name="listening" placeholder="Listening" required>
+          <input type="number" id="reading" name="reading" placeholder="Reading" required>
+          <input type="number" id="speaking" name="speaking" placeholder="Speaking" required>
+          <input type="number" id="writing" name="writing" placeholder="Writing" required>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label>Did you pay your first year tuition?</label>
+        <div class="radio-group">
+          <label>
+            <input type="radio" name="tuitionpayment" value="Yes" required>
+            <span>Yes</span>  
+          </label>
+          <label>
+            <input type="radio" name="tuitionpayment" value="No">
+            <span>No</span>  
+          </label>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="tuition">How much tuition fee did you pay? (CAD):</label>
+        <input type="number" id="tuition" name="tuition" required>
+      </div>
+
+      <div class="form-group">
+        <label>Did you do a GIC?</label>
+        <div class="radio-group">
+          <label>
+            <input type="radio" name="gicpayment" value="Yes" required>
+            <span>Yes</span>
+          </label>
+          <label>
+            <input type="radio" name="gicpayment" value="No">
+            <span>No</span>
+          </label>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="gic">How much did you pay towards GIC? (CAD):</label>
+        <input type="number" id="gic" name="gic" required>
+      </div>
+
+      <div class="form-group">
+        <input type="submit" value="Submit" id="submit-btn">
+      </div>
+    </form>
+  </div>
+  <!-- Modal -->
+  <!-- <div id="overlay">
+    <div id="modal">
+      <p id="message">Your application submitted successfully. We have sent an email, please check your inbox.</p>
+      <div id="ok-btn-box">
+        <input type="submit" value="Ok" id="ok-btn">
+      </div>
+    </div>
+  </div> -->
+</body>
+</html>

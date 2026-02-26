@@ -1,20 +1,15 @@
 // Import express
 import express from 'express';
 import bodyParser from 'body-parser';
-import client from './mongodb.js';
+import clientPromise from '../mongodb.js';
 
 const app = express();
 // Serve files from "public" folder
 app.use(express.static('public'));
 // parse JSON request bodies
 app.use(express.json());
-
 // Set up body-parser middleware to parse form data
 app.use(bodyParser.urlencoded({ extended: false }));
-
-// Select database and collection
-const db = client.db('sopdb');
-const users = db.collection('students');
 
 app.post('/submit', async (req, res) => {
   const email = req.body.email;
@@ -46,6 +41,10 @@ app.post('/submit', async (req, res) => {
   link = link + "&entry.1385560828="+ tuition +"&entry.901850093="+ gicpayment + "&entry.1308557841=" + gic;
 
   try {
+    const client = await clientPromise;
+    const db = client.db("sopdb");
+    const users = db.collection("students");
+
     await users.insertOne(req.body);
     await fetch(link, { method: "POST" });
 
@@ -72,8 +71,8 @@ app.post('/submit', async (req, res) => {
         </body>
       </html>
     `);
-  } catch (error) {
-    console.error(error);
+  } catch (err) {
+    console.error(err);
     return res.send(`
     <!DOCTYPE html>
     <html>

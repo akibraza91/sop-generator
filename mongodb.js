@@ -1,17 +1,17 @@
-import { MongoClient } from 'mongodb';
-import { attachDatabasePool } from '@vercel/functions';
+import { MongoClient } from "mongodb";
 import dotenv from 'dotenv'
 dotenv.config();
 
-const options = {
-  appName: "devrel.vercel.integration",
-  maxIdleTimeMS: 5000
-};
+const uri = process.env.MONGODB_URI;
 
-const client = new MongoClient(process.env.MONGODB_URI, options);
+let client;
+let clientPromise;
 
-// Attach the client to ensure proper cleanup on function suspension
-attachDatabasePool(client);
+if (!global._mongoClientPromise) {
+  client = new MongoClient(uri);
+  global._mongoClientPromise = client.connect();
+}
 
-// Export a module-scoped MongoClient to ensure the client can be shared across functions
-export default client;
+clientPromise = global._mongoClientPromise;
+
+export default clientPromise;

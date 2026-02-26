@@ -2,7 +2,8 @@
 import express from 'express';
 import bodyParser from 'body-parser';
 import puppeteer from 'puppeteer';
-import { MongoClient } from 'mongodb';
+// import { MongoClient } from 'mongodb';
+import client from './mongodb.js';
 
 const app = express();
 // Serve files from "public" folder
@@ -12,9 +13,9 @@ app.use(express.json()); // parse JSON request bodies
 // Set up body-parser middleware to parse form data
 app.use(bodyParser.urlencoded({ extended: false }));
 
-// MongoDB Connection
-const uri = "mongodb://localhost:27017";
-const client = new MongoClient(uri);
+// // MongoDB Connection
+// const uri = "mongodb://localhost:27017";
+// const client = new MongoClient(uri);
 
 // Select database and collection
 const db = client.db('sopdb');

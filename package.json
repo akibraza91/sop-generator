@@ -12,7 +12,9 @@
   "license": "ISC",
   "type": "module",
   "dependencies": {
+    "@vercel/functions": "^3.4.3",
     "body-parser": "^2.2.2",
+    "dotenv": "^17.3.1",
     "express": "^5.2.1",
     "mongodb": "^7.1.0",
     "puppeteer": "^24.37.5"

@@ -99,6 +99,10 @@ app.post('/submit', async (req, res) => {
   }
 });
 
+app.get("/", (req, res) => {
+  res.send("Server is running 🚀");
+});
+
 // // Start server
 // const PORT = 3000;
 // app.listen(PORT, () => {

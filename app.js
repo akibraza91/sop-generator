@@ -99,7 +99,7 @@ app.post('/submit', async (req, res) => {
   }
 });
 
-app.get('/public', (req, res) => {
+app.get('./public', (req, res) => {
   // res.send('Hello World')
 });
 

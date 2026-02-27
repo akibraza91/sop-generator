@@ -1,11 +1,11 @@
 // Import express
 import express from 'express';
 import bodyParser from 'body-parser';
-import clientPromise from './mongodb.js';
+import clientPromise from '../mongodb.js';
 
 const app = express();
 // Serve files from "public" folder
-app.use(express.static('./public'));
+app.use(express.static('../public'));
 // parse JSON request bodies
 app.use(express.json());
 // Set up body-parser middleware to parse form data
@@ -97,10 +97,6 @@ app.post('/submit', async (req, res) => {
     </html>
     `);
   }
-});
-
-app.get("/", (req, res) => {
-  res.send("Server is running 🚀");
 });
 
 // // Start server

@@ -2,14 +2,14 @@
 import express from 'express';
 import bodyParser from 'body-parser';
 import clientPromise from './mongodb.js';
+import path from "path";
 
 const app = express();
 // Serve files from "public" folder
-// app.use(express.static('./public'));
+app.use(express.static('./public'));
 // For vercel
 app.get("/", (req, res) => {
-  // res.sendFile("index.html", { root: "public" });
-  res.send('Server is runnig.')
+  res.sendFile(path.join(process.cwd(), "public", "index.html"));
 });
 // parse JSON request bodies
 app.use(express.json());

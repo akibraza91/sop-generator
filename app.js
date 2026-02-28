@@ -11,7 +11,7 @@ app.use(express.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 
 // Serve files from "public" folder for local
-// app.use(express.static('./public'));
+app.use(express.static('./public'));
 
 // For vercel
 app.get("/", (req, res) => {

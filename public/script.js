@@ -64,5 +64,5 @@ myForm.addEventListener('submit', (event) => {
 okBtn.addEventListener('click', () => {
     document.getElementById('overlay').style.display = 'none';
     // reset form fields to initial state
-    // myForm.reset();
+    myForm.reset();
 });

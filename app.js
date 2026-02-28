@@ -6,6 +6,10 @@ import clientPromise from './mongodb.js';
 const app = express();
 // Serve files from "public" folder
 app.use(express.static('./public'));
+// For vercel
+// app.get("/", (req, res) => {
+//   res.sendFile("index.html", { root: "public" });
+// });
 // parse JSON request bodies
 app.use(express.json());
 // Set up body-parser middleware to parse form data
@@ -98,6 +102,8 @@ app.post('/submit', async (req, res) => {
     `);
   }
 });
+
+
 
 // Start server
 // const PORT = 3000;

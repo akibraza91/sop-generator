@@ -7,6 +7,19 @@ myForm.addEventListener('submit', (event) => {
     const submitBtn = document.getElementById('submit-btn');
     submitBtn.disabled = true;
 
+    // Store original button dimensions
+    const originalWidth = submitBtn.offsetWidth;
+    const originalHeight = submitBtn.offsetHeight;
+    const originalText = submitBtn.textContent;
+    
+    // Lock button size and display spinner
+    submitBtn.style.width = originalWidth + 'px';
+    submitBtn.style.height = originalHeight + 'px';
+    submitBtn.style.display = 'flex';
+    submitBtn.style.justifyContent = 'center';
+    submitBtn.style.alignItems = 'center';
+    submitBtn.innerHTML = '<span class="spinner"></span>';
+
     // Collect form data as JSON
     const formData = new FormData(form);
     const data = Object.fromEntries(formData);
@@ -21,13 +34,28 @@ myForm.addEventListener('submit', (event) => {
     .then(result => {
         document.getElementById('message').textContent = result.message || "Submission successfull.";
         document.getElementById('overlay').style.display = 'flex';
+        
+        // Restore button
+        submitBtn.innerHTML = originalText;
+        submitBtn.style.width = '';
+        submitBtn.style.height = '';
+        submitBtn.style.display = '';
+        submitBtn.style.justifyContent = '';
+        submitBtn.style.alignItems = '';
+        submitBtn.disabled = false;
     })
     .catch(err => {
         console.error(err);
         document.getElementById('message').textContent = "An error occurred. Please try again after sometime.";
         document.getElementById('overlay').style.display = 'flex';
-    })
-    .finally(() => {
+        
+        // Restore button
+        submitBtn.innerHTML = originalText;
+        submitBtn.style.width = '';
+        submitBtn.style.height = '';
+        submitBtn.style.display = '';
+        submitBtn.style.justifyContent = '';
+        submitBtn.style.alignItems = '';
         submitBtn.disabled = false;
     });
 });
@@ -36,5 +64,5 @@ myForm.addEventListener('submit', (event) => {
 okBtn.addEventListener('click', () => {
     document.getElementById('overlay').style.display = 'none';
     // reset form fields to initial state
-    myForm.reset();
+    // myForm.reset();
 });

@@ -41,11 +41,11 @@ app.post('/submit', async (req, res) => {
 
   // Revert mail statement of purpose.
   var link = "https://docs.google.com/forms/d/e/1FAIpQLSdOHGp-XNvu2p06oSWY7Mtv0R81GxHH2XGaPa1gKdIXAL6msw/formResponse?&pageHistory=0";
-  // link = link + "&emailAddress="+ email +"&entry.1670307221="+ fullname +"&entry.1723368668="+ age +"&entry.2014837490="+ education;
-  // link = link + "&entry.2002229478="+ institute +"&entry.1364285845="+ study + "&entry.767407612="+ experience +"&entry.1569902389="+ admission;
-  // link = link + "&entry.1415007109="+ program +"&entry.2110947866="+ country +"&entry.1160268939="+ goals +"&entry.1604587969="+ listening;
-  // link = link + "&entry.1283128029="+ reading +"&entry.658412876="+ speaking +"&entry.1875431276="+ writing +"&entry.692259590="+ tuitionpayment;
-  // link = link + "&entry.1385560828="+ tuition +"&entry.901850093="+ gicpayment + "&entry.1308557841=" + gic;
+  link = link + "&emailAddress="+ email +"&entry.1670307221="+ fullname +"&entry.1723368668="+ age +"&entry.2014837490="+ education;
+  link = link + "&entry.2002229478="+ institute +"&entry.1364285845="+ study + "&entry.767407612="+ experience +"&entry.1569902389="+ admission;
+  link = link + "&entry.1415007109="+ program +"&entry.2110947866="+ country +"&entry.1160268939="+ goals +"&entry.1604587969="+ listening;
+  link = link + "&entry.1283128029="+ reading +"&entry.658412876="+ speaking +"&entry.1875431276="+ writing +"&entry.692259590="+ tuitionpayment;
+  link = link + "&entry.1385560828="+ tuition +"&entry.901850093="+ gicpayment + "&entry.1308557841=" + gic;
 
   try {
     const client = await clientPromise;

@@ -19,7 +19,7 @@ myForm.addEventListener('submit', (event) => {
     })
     .then(res => res.json())
     .then(result => {
-        document.getElementById('message').textContent = result.message;
+        document.getElementById('message').textContent = result.message || "Submission successfull.";
         document.getElementById('overlay').style.display = 'flex';
     })
     .catch(err => {

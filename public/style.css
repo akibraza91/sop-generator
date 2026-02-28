@@ -102,7 +102,7 @@ form .form-group .radio-group label
   align-items: center;
   gap: 0.2em;
 }
-input[type="submit"] {
+input[type="submit"], input[type="button"]{
   background-color: #007bff;
   color: #fff;
   padding: 10px 20px;
@@ -110,7 +110,7 @@ input[type="submit"] {
   border-radius: 3px;
   cursor: pointer;
 }
-input[type="submit"]:hover {
+input[type="submit"]:hover, input[type="button"]:hover {
   background-color: #0056b3;
 }
 /* Modal style */
@@ -122,25 +122,29 @@ input[type="submit"]:hover {
   height: 100%;
   background-color: rgba(0, 0, 0, 0.5);
   z-index: 999;
-  display: flex;
+  display: none;
   justify-content: center;
   align-items: center;
 }
 #overlay #modal {
   position: relative;
   width: 400px;
-  height: 150px;
+  height: auto;
   background-color: #f7f7f7;
   padding: 1em;
   display: flex;
   flex-direction: column;
   justify-content: space-around;
   border-radius: 0.5em;
+  gap: 20px;
 }
 #overlay #modal #ok-btn-box {
   position: relative;
   text-align: right;
   padding: 0 1.5em;
+}
+#overlay #modal #ok-btn-box #ok-btn {
+  position: relative;
 }
 
 @media (max-width: 600px){
@@ -152,5 +156,8 @@ input[type="submit"]:hover {
   .container .heading h1
   {
     font-size: 1.8em;
+  }
+  #overlay #modal {
+    width: 75%;
   }
 }

@@ -5,17 +5,19 @@ import clientPromise from './mongodb.js';
 import path from "path";
 
 const app = express();
-// Serve files from "public" folder
-app.use(express.static('./public'));
+// parse JSON request bodies
+app.use(express.json());
+// Set up body-parser middleware to parse form data
+app.use(bodyParser.urlencoded({ extended: false }));
+
+// Serve files from "public" folder for local
+// app.use(express.static('./public'));
+
 // For vercel
 app.get("/", (req, res) => {
   res.sendFile(path.join(process.cwd(), "public", "index.html"));
   res.sendFile(path.join(process.cwd(), "public", "style.css"));
 });
-// parse JSON request bodies
-app.use(express.json());
-// Set up body-parser middleware to parse form data
-app.use(bodyParser.urlencoded({ extended: false }));
 
 app.post('/submit', async (req, res) => {
   const email = req.body.email;
@@ -31,7 +33,7 @@ app.post('/submit', async (req, res) => {
   const goals = req.body.goals;
   const listening = req.body.listening;
   const reading = req.body.reading;
-  const speaking = req.body.speaking; 
+  const speaking = req.body.speaking;
   const writing = req.body.writing;
   const tuitionpayment = req.body.tuitionpayment;
   const tuition = req.body.tuition;
@@ -54,58 +56,14 @@ app.post('/submit', async (req, res) => {
     await users.insertOne(req.body);
     await fetch(link, { method: "POST" });
 
-    return res.send(`
-      <!DOCTYPE html>
-      <html>
-        <head>
-          <link rel="stylesheet" type="text/css" href="/style.css">
-        </head>
-        <body>
-          <div id="overlay">
-            <div id="modal">
-              <p id="message">Your application submitted successfully. We have sent an email, please check your inbox.</p>
-              <div id="ok-btn-box">
-                <input type="submit" value="Ok" id="ok-btn">
-              </div>
-            </div>
-          </div>
-          <script>
-            document.getElementById('ok-btn').addEventListener('click', function() {
-              window.location.href = '/';
-            });
-          </script>
-        </body>
-      </html>
-    `);
+    return res.json({ success: true, message: "Your application submitted successfully. We have sent an email, please check your inbox." });
   } catch (err) {
     console.error(err);
-    return res.send(`
-    <!DOCTYPE html>
-    <html>
-      <head>
-        <link rel="stylesheet" type="text/css" href="/style.css">
-      </head>
-      <body>
-        <div id="overlay">
-          <div id="modal">
-            <p id="message">An error occured while sending data.</p>
-            <div id="ok-btn-box">
-              <input type="submit" value="Ok" id="ok-btn">
-            </div>
-          </div>
-        </div>
-        <script>
-          document.getElementById('ok-btn').addEventListener('click', function() {
-            window.location.href = '/';
-          });
-        </script>
-      </body>
-    </html>
-    `);
+    return res.status(500).json({ success: false, message: "An error occurred. Please try again after sometime." });
   }
 });
 
-// Start server
+// // Start local server
 // const PORT = 3000;
 // app.listen(PORT, () => {
 //   console.log(`Server running at http://localhost:${PORT}`);

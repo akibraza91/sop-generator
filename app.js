@@ -9,7 +9,7 @@ const app = express();
 app.use(express.static('./public'));
 // For vercel
 app.get("/", (req, res) => {
-  res.sendFile(path.join(process.cwd(), "public", "index.html"));
+  res.sendFile(path.join(process.cwd(), "public", ["index.html", "style.css"]));
 });
 // parse JSON request bodies
 app.use(express.json());
